@@ -1,0 +1,31 @@
+#include<stdio.h>
+main()
+{
+    int la[8]={25,35,57,50,16,48,9,63};
+    int *firstp=la;
+    int *lastp=la+7;
+    int i;
+    int temp;
+    for(i=0;i<8;i++)
+    {
+        if(*firstp%2==1)
+            firstp++;
+        if(*firstp%2==0)
+        {
+            if(*lastp%2==0)
+                lastp--;
+            if(*lastp%2==1)
+            {
+                temp=*firstp;
+                *firstp=*lastp;
+                *lastp=temp;
+            }
+        }
+        if(firstp==lastp)
+            break;
+    }
+    for(i=0;i<8;i++)
+    {
+        printf("%d ",la[i]);
+    }
+}
